@@ -1,0 +1,77 @@
+﻿@model IEnumerable<UnitedWayPrototypeApplication.Models.DepartmentModel>
+
+@{
+    ViewBag.Title = "Department";
+}
+
+<h2>Department</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateDepartment")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OrgCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Division)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UWCoordinator3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UWCoordinator2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UWCoordinator1)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.DepartmentStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartmentDateCreated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartmentLastEdited)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.OrgCode)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Division)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.UWCoordinator3)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.UWCoordinator2)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.UWCoordinator1)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.DepartmentStatus)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DepartmentDateCreated)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DepartmentLastEdited)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+    </td>
+</tr>
+}
+
+</table>

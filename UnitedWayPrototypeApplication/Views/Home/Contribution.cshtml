@@ -1,0 +1,99 @@
+﻿@model IEnumerable<UnitedWayPrototypeApplication.Models.ContributionModel>
+
+@{
+    ViewBag.Title = "Contribution";
+}
+
+<h2>Contribution</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateContribution")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ContributionID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CWID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CFirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CLastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AgencyID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UWType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UWMonthly)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UWMonths)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContributionAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UWYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UWDateCreated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UWDateLastEdited)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContributionID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CWID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CFirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CLastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AgencyID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UWType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UWMonthly)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UWMonths)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContributionAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UWYear)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UWDateCreated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UWDateLastEdited)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,132 @@
+﻿@model IEnumerable<UnitedWayPrototypeApplication.Models.EmployeeModel>
+
+@{
+    ViewBag.Title = "Employee List";
+}
+
+<h2>Employee Overview List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "EmployeeCreate")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CWID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeMI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeStreetAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeState)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeZip)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Payroll)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Salary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.POBox)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.POBoxCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.POBoxState)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmpOrgCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeDepartment)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeDateCreated)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CWID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeMI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeStreetAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeCity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeState)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeZip)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Payroll)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Salary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.POBox)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.POBoxCity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.POBoxState)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmpOrgCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeDepartment)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeDateCreated)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
