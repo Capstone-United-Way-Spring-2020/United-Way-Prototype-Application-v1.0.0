@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using UnitedWayPrototypeApplication.Models;
+using DataLibrary;
+using static DataLibrary.BusinessLogic.EmployeeProcessor;
 
 namespace UnitedWayPrototypeApplication.Controllers
 {
@@ -63,6 +66,22 @@ namespace UnitedWayPrototypeApplication.Controllers
 
             return View();
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EmployeeCreate(EmployeeModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                CreateEmployee(model.CWID, model.FirstName, model.LastName, model.EmployeeMI, model.EmployeeStreetAddress, model.EmployeeCity, model.EmployeeState, model.EmployeeZip,
+                    model.Payroll, model.Salary, model.POBox, model.POBoxCity, model.EmpOrgCode, model.EmployeeDepartment, model.GivingYear, model.EmployeeStatus, model.EmployeeDateCreated);
+            }
+
+            ViewBag.Message = "Create new Employee";
+
+            return View();
+        }
+
 
         public ActionResult Agency()
         {
@@ -149,7 +168,7 @@ namespace UnitedWayPrototypeApplication.Controllers
             departments.Add(new Models.DepartmentModel
             {
                 OrgCode = 10510,
-                DepartmentDateCreated = new DateTime(2020, 2 / 14),
+                DepartmentDateCreated = new DateTime(2020, 2, 14),
                 Division = "President Office",
                 UWCoordinator3 = "Beverly Baker",
                 UWCoordinator2 = "Beverly Baker",

@@ -9,7 +9,7 @@ namespace UnitedWayPrototypeApplication.Models
     public class EmployeeModel
     {
         [Display(Name = "CWID")]
-        [Range(10000000, 99999999)]
+        [Range(10000000, 99999999, ErrorMessage = "You need to enter a valid CWID")]
         [Required(ErrorMessage = "You must enter a CWID")]
         public int CWID { get; set; }
 
@@ -37,6 +37,7 @@ namespace UnitedWayPrototypeApplication.Models
         public string EmployeeState { get; set; }
         
         [Display(Name = "Zip Code")]
+        [DataType(DataType.PostalCode)]
         [Required(ErrorMessage = "You must enter a zip code")]
         public int EmployeeZip { get; set; }
 
@@ -73,6 +74,7 @@ namespace UnitedWayPrototypeApplication.Models
         [Display(Name = "Date Created")]
         public DateTime EmployeeDateCreated { get; set; } = DateTime.Now;
 
+        //org code?? department name??
 
     }
 }
