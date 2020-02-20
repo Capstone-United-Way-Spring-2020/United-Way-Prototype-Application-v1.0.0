@@ -74,7 +74,7 @@ namespace UnitedWayPrototypeApplication.Controllers
             if (ModelState.IsValid)
             {
                 CreateEmployee(model.CWID, model.FirstName, model.LastName, model.EmployeeMI, model.EmployeeStreetAddress, model.EmployeeCity, model.EmployeeState, model.EmployeeZip,
-                    model.Payroll, model.Salary, model.POBox, model.POBoxCity, model.EmpOrgCode, model.EmployeeDepartment, model.GivingYear, model.EmployeeStatus, model.EmployeeDateCreated);
+                    model.Payroll, model.Salary, model.POBox, model.POBoxCity, model.POBoxState, model.EmpOrgCode, model.EmployeeDepartment, model.GivingYear, model.EmployeeStatus, model.EmployeeDateCreated);
             }
 
             ViewBag.Message = "Create new Employee";
