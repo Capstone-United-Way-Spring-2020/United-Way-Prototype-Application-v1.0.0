@@ -28,7 +28,7 @@ namespace UnitedWayPrototypeApplication.Models
         public bool DepartmentStatus { get; set; } = true;
 
         [Display(Name = "Department Date Created")]
-        public DateTime DepartmentDateCreated { get; set; } = DateTime.Now;
+        public DateTime DepartmentDateCreated { get; set; }
 
         [Display(Name = "Department Last Edited")]
         public DateTime DepartmentLastEdited { get; set; }
