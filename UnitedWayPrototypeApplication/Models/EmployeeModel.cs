@@ -74,7 +74,5 @@ namespace UnitedWayPrototypeApplication.Models
         [Display(Name = "Date Created")]
         public DateTime EmployeeDateCreated { get; set; } = DateTime.Now;
 
-        //org code?? department name??
-
     }
 }

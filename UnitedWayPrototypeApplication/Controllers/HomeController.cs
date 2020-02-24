@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using UnitedWayPrototypeApplication.Models;
 using DataLibrary;
-
+//use comments on code
 
 namespace UnitedWayPrototypeApplication.Controllers
 {
