@@ -16,7 +16,3 @@ ALTER ROLE [db_owner] ADD MEMBER [UnitedWayAppAccount];
 GO
 ALTER ROLE [db_owner] ADD MEMBER [UA-NET\abeeson];
 
-
-GO
-ALTER ROLE [db_owner] ADD MEMBER [UAREACHDBAdmin];
-

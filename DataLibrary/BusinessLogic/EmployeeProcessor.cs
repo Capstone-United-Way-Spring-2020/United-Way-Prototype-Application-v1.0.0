@@ -37,8 +37,8 @@ namespace DataLibrary.BusinessLogic
                 EmployeeDateCreated = empDateCreated,
             };
 
-            string sql = @"INSERT INTO Employee (cwid, employeefirstname, employeelastname, employeemi, streetaddress, employeecity, employeestate, employeezip, payroll, salary, pobox, poboxstate, poboxcity, givingyear, employeestatus, employeestatusdate, employeedatecreated, employeedatelastedited)
-                    VALUES (@CWID, @FirstName, @LastName, @EmployeeMI, @EmployeeStreetAddress, @EmployeeCity, @EmployeeState, @EmployeeZip, @Payroll, @Salary, @EmpOrgCode, @EmployeeDepartment, @EmployeeDateCreated, @EmployeeStatus)";
+            string sql = @"INSERT INTO Employee (cwid, employeefirstname, employeelastname, employeemi, streetaddress, employeecity, employeestate, employeezip, payroll, salary, pobox, poboxstate, poboxcity, givingyear, employeestatus, orgcode, employeedatecreated)
+                    VALUES                      (@CWID, @FirstName, @LastName, @EmployeeMI, @EmployeeStreetAddress, @EmployeeCity, @EmployeeState, @EmployeeZip, @Payroll, @Salary, @POBox, @POBoxState, @POBoxCity, @GivingYear, @EmployeeStatus, @EmpOrgCode, @EmployeeDateCreated)";
 
             return SQLDataAccess.SaveData(sql, data);
 

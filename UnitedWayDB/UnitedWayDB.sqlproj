@@ -81,7 +81,6 @@
     <Build Include="Security\UnitedWayAppAccount.sql" />
     <Build Include="Security\UnitedWayAppAccount_1.sql" />
     <Build Include="Security\UA-NET_abeeson.sql" />
-    <Build Include="Security\UAREACHDBAdmin.sql" />
     <Build Include="Security\RoleMemberships.sql" />
   </ItemGroup>
 </Project>
