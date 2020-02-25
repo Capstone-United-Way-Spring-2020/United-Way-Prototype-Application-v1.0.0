@@ -34,30 +34,35 @@ namespace UnitedWayPrototypeApplication.Controllers
         {
             ViewBag.Message = "Employee Overview";
 
-            List<Models.EmployeeModel> employees = new List<Models.EmployeeModel>();
+            var data = DataLibrary.BusinessLogic.EmployeeProcessor.LoadEmployees();
+            List<EmployeeModel> employees = new List<EmployeeModel>();
 
-            employees.Add(new Models.EmployeeModel
+            foreach (var row in data)
             {
-                CWID = 11708591,
-                EmployeeCity = "Tuscaloosa",
-                EmployeeDateCreated = new DateTime(2020, 2, 14),
-                EmployeeMI = "T",
-                EmployeeState = "AL",
-                EmployeeStreetAddress = "238 Cedar Crest",
-                EmployeeZip = 35401,
-                FirstName = "Christian",
-                LastName = "Golczynski",
-                GivingYear = 2020,
-                Payroll = "m",
-                Salary = 900000,
-                POBox = 85392,
-                POBoxCity = "Tuscaloosa",
-                POBoxState = "AL",
-                EmpOrgCode = 10510,
-                EmployeeDepartment = "President Office"
-            });
+                employees.Add(new EmployeeModel
+                {
+                    CWID = row.CWID,
+                    EmployeeFirstName = row.EmployeeFirstName,
+                    EmployeeLastName = row.EmployeeLastName,
+                    EmployeeMI = row.EmployeeMI,
+                    StreetAddress = row.StreetAddress,
+                    EmployeeCity = row.EmployeeCity,
+                    EmployeeState = row.EmployeeState,
+                    EmployeeZip = row.EmployeeZip,
+                    EmployeeDepartment = row.EmployeeDepartment,
+                    OrgCode = row.OrgCode,
+                    EmployeeStatus = row.EmployeeStatus,
+                    EmployeeDateCreated = row.EmployeeDateCreated,
+                    GivingYear = row.GivingYear,
+                    Payroll = row.Payroll,
+                    Salary = row.Salary,
+                    POBox = row.POBox,
+                    POBoxCity = row.POBoxCity,
+                    POBoxState = row.POBoxState
+                });
+            }
 
-            return View(employees);
+            return View(employees); 
         }
 
         public ActionResult EmployeeCreate()
@@ -73,8 +78,8 @@ namespace UnitedWayPrototypeApplication.Controllers
         {
             if (ModelState.IsValid)
             {
-                DataLibrary.BusinessLogic.EmployeeProcessor.CreateEmployee(model.CWID, model.FirstName, model.LastName, model.EmployeeMI, model.EmployeeStreetAddress, model.EmployeeCity, model.EmployeeState, model.EmployeeZip,
-                    model.Payroll, model.Salary, model.POBox, model.POBoxCity, model.POBoxState, model.EmpOrgCode, model.EmployeeDepartment, model.GivingYear, model.EmployeeStatus, model.EmployeeDateCreated);
+                DataLibrary.BusinessLogic.EmployeeProcessor.CreateEmployee(model.CWID, model.EmployeeFirstName, model.EmployeeLastName, model.EmployeeMI, model.StreetAddress, model.EmployeeCity, model.EmployeeState, model.EmployeeZip,
+                    model.Payroll, model.Salary, model.POBox, model.POBoxCity, model.POBoxState, model.OrgCode, model.EmployeeDepartment, model.GivingYear, model.EmployeeStatus, model.EmployeeDateCreated);
             }
 
             ViewBag.Message = "Create new Employee";

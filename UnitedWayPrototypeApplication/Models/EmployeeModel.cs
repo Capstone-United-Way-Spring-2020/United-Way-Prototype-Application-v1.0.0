@@ -15,18 +15,18 @@ namespace UnitedWayPrototypeApplication.Models
 
         [Display(Name = "First Name")]
         [Required(ErrorMessage ="You must enter a first name")]
-        public string FirstName { get; set; }
+        public string EmployeeFirstName { get; set; }
 
         [Display(Name = "Last Name")]
         [Required(ErrorMessage = "You must enter a last name")]
-        public string LastName { get; set; }
+        public string EmployeeLastName { get; set; }
 
         [Display(Name = "Middle Initial")]
         public string EmployeeMI { get; set; }
 
         [Display(Name = "Street Address")]
         [Required(ErrorMessage = "You must enter a street address")]
-        public string EmployeeStreetAddress { get; set; }
+        public string StreetAddress { get; set; }
 
         [Display(Name = "City")]
         [Required(ErrorMessage = "You must enter a ctiy")]
@@ -59,7 +59,7 @@ namespace UnitedWayPrototypeApplication.Models
         public string POBoxState { get; set; }
 
         [Display(Name = "Org Code")]
-        public int EmpOrgCode { get; set; }
+        public int OrgCode { get; set; }
 
         [Display(Name = "Department")]
         public string EmployeeDepartment { get; set; }

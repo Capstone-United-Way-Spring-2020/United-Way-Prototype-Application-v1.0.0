@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<UnitedWayPrototypeApplication.Models.EmployeeModel>
 
 @{
-    ViewBag.Title = "Employee List";
+    ViewBag.Title = "Employee Overview";
 }
-    
-<h2>Employee Overview List</h2>
+
+<h2></h2>
 
 <p>
-    @Html.ActionLink("Create New", "EmployeeCreate")
+    @Html.ActionLink("Create New Employee", "EmployeeCreate")
 </p>
 <table class="table">
     <tr>
@@ -15,16 +15,16 @@
             @Html.DisplayNameFor(model => model.CWID)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstName)
+            @Html.DisplayNameFor(model => model.EmployeeFirstName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.LastName)
+            @Html.DisplayNameFor(model => model.EmployeeLastName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.EmployeeMI)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EmployeeStreetAddress)
+            @Html.DisplayNameFor(model => model.StreetAddress)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.EmployeeCity)
@@ -51,19 +51,20 @@
             @Html.DisplayNameFor(model => model.POBoxState)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EmpOrgCode)
+            @Html.DisplayNameFor(model => model.OrgCode)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.EmployeeDepartment)
         </th>
-        
+        <th>
+            @Html.DisplayNameFor(model => model.GivingYear)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.EmployeeStatus)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.EmployeeDateCreated)
         </th>
-        
         <th></th>
     </tr>
 
@@ -73,16 +74,16 @@
             @Html.DisplayFor(modelItem => item.CWID)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
+            @Html.DisplayFor(modelItem => item.EmployeeFirstName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.LastName)
+            @Html.DisplayFor(modelItem => item.EmployeeLastName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.EmployeeMI)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.EmployeeStreetAddress)
+            @Html.DisplayFor(modelItem => item.StreetAddress)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.EmployeeCity)
@@ -109,12 +110,14 @@
             @Html.DisplayFor(modelItem => item.POBoxState)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.EmpOrgCode)
+            @Html.DisplayFor(modelItem => item.OrgCode)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.EmployeeDepartment)
         </td>
-        
+        <td>
+            @Html.DisplayFor(modelItem => item.GivingYear)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.EmployeeStatus)
         </td>

@@ -18,10 +18,10 @@ namespace DataLibrary.BusinessLogic
             EmployeeModel data = new EmployeeModel
             {
                 CWID = empCWID,
-                FirstName = firstName,
-                LastName = lastName,
+                EmployeeFirstName = firstName,
+                EmployeeLastName = lastName,
                 EmployeeMI = empMI,
-                EmployeeStreetAddress = streetAddress,
+                StreetAddress = streetAddress,
                 EmployeeCity = empCity,
                 EmployeeState = empState,
                 EmployeeZip = empZip,
@@ -30,7 +30,7 @@ namespace DataLibrary.BusinessLogic
                 POBox = empPoBox,
                 POBoxCity = empPoBoxCity,
                 POBoxState = empPoBoxState,
-                EmpOrgCode = empOrgCode,
+                OrgCode = empOrgCode,
                 EmployeeDepartment = empDepartment,
                 GivingYear = givingYear,
                 EmployeeStatus = empStatus,
@@ -38,7 +38,7 @@ namespace DataLibrary.BusinessLogic
             };
 
             string sql = @"INSERT INTO Employee (cwid, employeefirstname, employeelastname, employeemi, streetaddress, employeecity, employeestate, employeezip, payroll, salary, pobox, poboxstate, poboxcity, givingyear, employeestatus, orgcode, employeedatecreated)
-                    VALUES                      (@CWID, @FirstName, @LastName, @EmployeeMI, @EmployeeStreetAddress, @EmployeeCity, @EmployeeState, @EmployeeZip, @Payroll, @Salary, @POBox, @POBoxState, @POBoxCity, @GivingYear, @EmployeeStatus, @EmpOrgCode, @EmployeeDateCreated)";
+                    VALUES                      (@CWID, @EmployeeFirstName, @EmployeeLastName, @EmployeeMI, @EmployeeStreetAddress, @EmployeeCity, @EmployeeState, @EmployeeZip, @Payroll, @Salary, @POBox, @POBoxState, @POBoxCity, @GivingYear, @EmployeeStatus, @EmpOrgCode, @EmployeeDateCreated)";
 
             return SQLDataAccess.SaveData(sql, data);
 
@@ -46,7 +46,7 @@ namespace DataLibrary.BusinessLogic
 
         public static List<EmployeeModel> LoadEmployees()
         {
-            string sql = @"SELECT CWID, FirstName, LastName, EmployeeMI, EmployeeStreetAddress, EmployeeCity, EmployeeState, EmployeeZip, Payroll, Salary, EmpOrgCode, EmployeeDepartment, EmployeeDateCreated, EmployeeStatus
+            string sql = @"SELECT cwid, employeefirstname, employeelastname, employeemi, streetaddress, employeecity, employeestate, employeezip, payroll, salary, pobox, poboxstate, poboxcity, givingyear, employeestatus, orgcode, employeedatecreated
                             from dbo.Employee;";
 
             return SQLDataAccess.LoadData<EmployeeModel>(sql);
