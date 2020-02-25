@@ -45,8 +45,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogic\DepartmentProcessor.cs" />
     <Compile Include="BusinessLogic\EmployeeProcessor.cs" />
     <Compile Include="DataAccess\SQLDataAccess.cs" />
+    <Compile Include="Models\DepartmentModel.cs" />
     <Compile Include="Models\EmployeeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

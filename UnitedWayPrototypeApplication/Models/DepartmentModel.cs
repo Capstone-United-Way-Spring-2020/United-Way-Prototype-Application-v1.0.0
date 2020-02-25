@@ -9,8 +9,12 @@ namespace UnitedWayPrototypeApplication.Models
     public class DepartmentModel
     {
         [Display(Name = "Org Code")]
-        [Required(ErrorMessage = "You must enter an Org Code")]
+        [Required(ErrorMessage = "You must enter an org C=code")]
         public int OrgCode { get; set; }
+
+        [Display(Name = "Department Name")]
+        [Required(ErrorMessage = "You must enter a department name.")]
+        public string departmentname { get; set; }
 
         [Display(Name = "UW Coordinator 3")]
         public string UWCoordinator3 { get; set; }

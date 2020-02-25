@@ -8,6 +8,9 @@ namespace DataLibrary.Models
 {
     public class EmployeeModel
     {
+        //this is a front end, user interface model and is different from the data access model
+        //dont want to decorate these models, not needed (name, requirements, error messages etc)
+        //DATABASE doesnt care about modifiers, only the properties themselves
         public int Id { get; set; }
         public int CWID { get; set; }
         public string EmployeeFirstName { get; set; }

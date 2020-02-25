@@ -30,13 +30,16 @@ namespace UnitedWayPrototypeApplication.Controllers
             return View();
         }
 
+        //employee overview, the list of all employees in the system
         public ActionResult Employee()
         {
             ViewBag.Message = "Employee Overview";
 
+            //using the SQL SELECT statements in EmployeeProcessor to LOAD the employees
             var data = DataLibrary.BusinessLogic.EmployeeProcessor.LoadEmployees();
             List<EmployeeModel> employees = new List<EmployeeModel>();
 
+            //displaying all the loaded employees
             foreach (var row in data)
             {
                 employees.Add(new EmployeeModel
@@ -65,17 +68,19 @@ namespace UnitedWayPrototypeApplication.Controllers
             return View(employees); 
         }
 
+        //form for creating an employee
         public ActionResult EmployeeCreate()
         {
             ViewBag.Message = "Create new Employee";
 
             return View();
         }
-
+        //catching the information entered in the employee create form
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult EmployeeCreate(EmployeeModel model)
         {
+            //if the model (data) is valid, create the employee in the database using these parameters
             if (ModelState.IsValid)
             {
                 DataLibrary.BusinessLogic.EmployeeProcessor.CreateEmployee(model.CWID, model.EmployeeFirstName, model.EmployeeLastName, model.EmployeeMI, model.StreetAddress, model.EmployeeCity, model.EmployeeState, model.EmployeeZip,
@@ -164,31 +169,58 @@ namespace UnitedWayPrototypeApplication.Controllers
             return View();
         }
 
+        //department overview, shows all departments in a list
         public ActionResult Department()
         {
             ViewBag.Message = "Department Overview";
 
-            List<Models.DepartmentModel> departments = new List<Models.DepartmentModel>();
+            //able to use that SQL SELECT statement from DepartmentProcessor, use for each to loop through all data
+            var data = DataLibrary.BusinessLogic.DepartmentProcessor.LoadDepartments();
+            List<DepartmentModel> departments = new List<DepartmentModel>();
 
-            departments.Add(new Models.DepartmentModel
+
+            foreach (var row in data)
             {
-                OrgCode = 10510,
-                DepartmentDateCreated = new DateTime(2020, 2, 14),
-                Division = "President Office",
-                UWCoordinator3 = "Beverly Baker",
-                UWCoordinator2 = "Beverly Baker",
-                UWCoordinator1 = "Beverly Baker",
-                DepartmentLastEdited = new DateTime(2020, 2, 16)
-            });
+                departments.Add(new DepartmentModel
+                {
+                    OrgCode = row.OrgCode,
+                    departmentname = row.departmentname,
+                    UWCoordinator3 = row.UWCoordinator3,
+                    UWCoordinator2 = row.UWCoordinator2,
+                    UWCoordinator1 = row.UWCoordinator1,
+                    Division = row.Division,
+                    DepartmentStatus = row.DepartmentStatus,
+                    DepartmentDateCreated = row.DepartmentDateCreated,
+                    DepartmentLastEdited = row.DepartmentLastEdited
+                });
+            }
+
 
             return View(departments);
         }
 
+        //form for creating a new department
         public ActionResult CreateDepartment()
         {
             ViewBag.Message = "Create new Department";
 
             return View();
         }
+
+        //catching the information from the create department form
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateDepartment(DepartmentModel model)
+        {
+            //checking if the data sent from the form is valid 
+            if (ModelState.IsValid)
+            {
+                DataLibrary.BusinessLogic.DepartmentProcessor.CreateDepartment(model.OrgCode, model.departmentname, model.UWCoordinator3, model.UWCoordinator2, model.UWCoordinator1, model.Division,
+                    model.DepartmentStatus, model.DepartmentDateCreated, model.DepartmentLastEdited);
+            }
+
+            return View();
+        }
+
     }
 }

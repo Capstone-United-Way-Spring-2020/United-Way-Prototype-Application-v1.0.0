@@ -173,9 +173,9 @@
     <Content Include="Views\Home\CreateAgency.cshtml" />
     <Content Include="Views\Home\Contribution.cshtml" />
     <Content Include="Views\Home\CreateContribution.cshtml" />
-    <Content Include="Views\Home\Department.cshtml" />
     <Content Include="Views\Home\CreateDepartment.cshtml" />
     <Content Include="Views\Home\Employee.cshtml" />
+    <Content Include="Views\Home\Department.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
