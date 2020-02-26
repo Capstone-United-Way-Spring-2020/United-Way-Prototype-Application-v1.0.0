@@ -32,7 +32,7 @@ namespace DataLibrary.BusinessLogic
         //code for pulling the data from the agency table in the UW database
         public static List<AgencyModel> LoadAgencies()
         {
-            string sql = @"SELECT agnecyid, agencyname, agencystatus, agencydatecreated, agencydatelastedited 
+            string sql = @"SELECT agencyid, agencyname, agencystatus, agencydatecreated, agencydatelastedited 
                             FROM Agency;";
 
             return SQLDataAccess.LoadData<AgencyModel>(sql);

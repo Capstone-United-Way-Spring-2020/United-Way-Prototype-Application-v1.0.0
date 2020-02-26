@@ -24,7 +24,7 @@ namespace UnitedWayPrototypeApplication.Models
         [Display(Name = "Agency ID (optional)")]
         public int AgencyID { get; set; }
 
-        [Display(Name = "Type of contribution")]
+        [Display(Name = "Type of Contribution")]
         [Required(ErrorMessage = "You must select a contribution type")]
         public string UWType { get; set; }
 
