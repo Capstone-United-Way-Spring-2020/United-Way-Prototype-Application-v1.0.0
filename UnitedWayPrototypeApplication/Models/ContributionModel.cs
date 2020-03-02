@@ -15,10 +15,10 @@ namespace UnitedWayPrototypeApplication.Models
         [Required(ErrorMessage = "You must enter an employee CWID")]
         public int CWID { get; set; }
 
-        [Display(Name = "First Name")]
+        [Display(Name = "Employee First Name")]
         public string CFirstName { get; set; }
 
-        [Display(Name = "Last Name")]
+        [Display(Name = "Employee Last Name")]
         public string CLastName { get; set; }
 
         [Display(Name = "Agency ID (optional)")]
