@@ -1,6 +1,7 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 100px;
     padding-bottom: 50px;
+    
     
 
 }
@@ -9,7 +10,8 @@
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
-    margin-top:100px;
+    
+  
     
     
 }
@@ -31,12 +33,17 @@ textarea {
 .navbar-inverse {
     background-color: #9E1B32 !important;
     border-color: white !important;
+
+
     
     
  
 }
 .navbar-inverse .navbar-nav > li > a {
     color: #FFFFFF !important;
+    font-size:2em;
+   
+ 
 
 }
 
@@ -54,7 +61,11 @@ textarea {
 
 .btn-primary {
     background-color: #9E1B32 !important;
+ 
    
-   
+   }
+.navbar-nav {
+    font-size:20px;
 }
+
 
