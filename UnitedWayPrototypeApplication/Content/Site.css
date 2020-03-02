@@ -19,7 +19,7 @@
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
-/.dl-horizontal dt {
+.dl-horizontal dt {
     white-space: normal;
 }
     
@@ -42,6 +42,9 @@ textarea {
 .navbar-inverse .navbar-nav > li > a {
     color: #FFFFFF !important;
     font-size:2em;
+    border-right-style:groove;
+
+
    
  
 
@@ -49,12 +52,15 @@ textarea {
 
 .navbar-inverse .navbar-nav > li > a:hover {
         background-color: #808080 !important;
+       
 
 
     }
 
 .navbar-inverse .navbar-brand {
     color: #FFFFFF !important;
+  
+  
     
   
 }
@@ -65,7 +71,13 @@ textarea {
    
    }
 .navbar-nav {
-    font-size:20px;
+    font-size:18px;
+}
+.navbar-brand{
+    font-size:30px;
+    text-shadow: 2px 2px black ;
+    
+    
 }
 
 
