@@ -28,13 +28,13 @@ namespace UnitedWayPrototypeApplication.Models
         [Display(Name = "Division")]
         public string Division { get; set; }
 
-       // [Display(Name = "Department Status")]
+       [Display(Name = "Department Status")]
         public bool DepartmentStatus { get; set; } = true;
 
-        // [Display(Name = "Department Date Created")]
+        [Display(Name = "Department Date Created")]
         public DateTime DepartmentDateCreated { get; set; } = DateTime.Now;
 
-        // [Display(Name = "Department Last Edited")]
+        [Display(Name = "Department Last Edited")]
         public DateTime DepartmentLastEdited { get; set; } = DateTime.Now;
 
 

@@ -16,13 +16,13 @@ namespace UnitedWayPrototypeApplication.Models
         [Required(ErrorMessage = "You must enter an Agency Name")]
         public string AgencyName { get; set; }
 
-       // [Display(Name = "Agency Status")]
+        [Display(Name = "Agency Status")]
         public bool AgencyStatus { get; set; } = true;
 
-       // [Display(Name = "Agency Date Created")]
+        [Display(Name = "Agency Date Created")]
         public DateTime AgencyDateCreated { get; set; } = DateTime.Now;
 
-      //  [Display(Name = "Agency Last Edited")]
+        [Display(Name = "Agency Last Edited")]
         public DateTime AgencyDateLastEdited { get; set; } = DateTime.Now;
     }
 }
