@@ -17,7 +17,7 @@ namespace DataLibrary.Models
         public string CLastName { get; set; }
         public int AgencyID { get; set; }
         public string UWType { get; set; }
-        public int UWMonthly { get; set; }
+        public double UWMonthly { get; set; }
         public int UWMonths { get; set; }
         public int CheckNumber { get; set; }
         public int ContributionAmount { get; set; }
