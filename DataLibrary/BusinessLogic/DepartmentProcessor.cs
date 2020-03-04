@@ -43,5 +43,31 @@ namespace DataLibrary.BusinessLogic
 
             return SQLDataAccess.LoadData<DepartmentModel>(sql);
         }
+
+        public static int EditDepartment(int orgCode, string departmentName, string uwCoordinator3, string uwCoordinator2, string uwCoordinator1,
+            string diVision, bool departmentStatus, DateTime departmentDateCreated, DateTime departmentLastEdited)
+        {
+            DepartmentModel data = new DepartmentModel
+            {
+                OrgCode = orgCode,
+                departmentname = departmentName,
+                UWCoordinator3 = uwCoordinator3,
+                UWCoordinator2 = uwCoordinator2,
+                UWCoordinator1 = uwCoordinator1,
+                Division = diVision,
+                DepartmentDateCreated = departmentDateCreated,
+                DepartmentLastEdited = departmentLastEdited,
+                DepartmentStatus = departmentStatus
+            };
+
+
+            string sql = @"UPDATE Department SET (orgcode = @orgCode, departmentname = @departmentName, uwcoordinator3 = @uwCoordinator3, uwcoordinator2 = @uwCoordinator2, 
+                            uwcoordinator1 = @uwCoordinator1, division = @diVision, departmentdatecreated = @departmentDateCreated, departmentlastedited = @departmentLastEdited, 
+                            departmentstatus = @departmentStatus)
+                            WHERE (orgcode = @orgCode);";
+
+            return SQLDataAccess.SaveData(sql, data);
+        }
+
     }
 }

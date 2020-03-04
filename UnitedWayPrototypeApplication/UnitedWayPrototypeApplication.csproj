@@ -176,6 +176,7 @@
     <Content Include="Views\Home\Department.cshtml" />
     <Content Include="Views\Home\CreateAgency.cshtml" />
     <Content Include="Views\Home\Agency.cshtml" />
+    <Content Include="Views\Home\EditDepartment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
