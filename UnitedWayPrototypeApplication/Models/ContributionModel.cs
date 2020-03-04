@@ -53,10 +53,10 @@ namespace UnitedWayPrototypeApplication.Models
         [Display(Name = "Current Year")]
         public int UWYear { get; set; }
 
-        [Display(Name = "Date of Contribution")]
+       // [Display(Name = "Date of Contribution")]
         public DateTime UWDateCreated { get; set; } = DateTime.Now;
 
-        [Display(Name = "Date of Edit")]
-        public DateTime UWDateLastEdited { get; set; }
+        // [Display(Name = "Date of Edit")]
+        public DateTime UWDateLastEdited { get; set; } = DateTime.Now;
     }
 }
