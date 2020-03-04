@@ -11,7 +11,7 @@ namespace DataLibrary.BusinessLogic
     //process the information/data, statements for sending data to and from sql database
     public class ContributionProcessor
     {
-        public static int CreateContribution(int contributionID, int CWID, string CFirstName, string CLastName, int AgencyID, string UWType, int UWMonthly, int UWMonths, int CheckNumber, int ContributionAmount, int UWYear, DateTime UWDateCreated, DateTime UWDateLastEdited)
+        public static int CreateContribution(int contributionID, int CWID, string CFirstName, string CLastName, int AgencyID, string UWType, double UWMonthly, int UWMonths, int CheckNumber, int ContributionAmount, int UWYear, DateTime UWDateCreated, DateTime UWDateLastEdited)
         {
             ContributionModel data = new ContributionModel
             {
