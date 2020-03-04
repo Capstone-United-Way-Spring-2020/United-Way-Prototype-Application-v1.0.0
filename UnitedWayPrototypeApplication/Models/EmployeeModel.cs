@@ -66,12 +66,12 @@ namespace UnitedWayPrototypeApplication.Models
 
         [Display(Name = "Giving Year")]
         [Required(ErrorMessage = "You must enter the giving year")]
-        public int GivingYear { get; set; }
+        public int GivingYear { get; set; } 
 
-        [Display(Name = "Employee Status")]
+       // [Display(Name = "Employee Status")]
         public bool EmployeeStatus { get; set; } = true;
 
-        [Display(Name = "Date Created")]
+       // [Display(Name = "Date Created")]
         public DateTime EmployeeDateCreated { get; set; } = DateTime.Now;
 
     }
