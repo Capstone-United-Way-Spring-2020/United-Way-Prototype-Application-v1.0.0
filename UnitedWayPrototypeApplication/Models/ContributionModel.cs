@@ -64,10 +64,12 @@ namespace UnitedWayPrototypeApplication.Models
         [Display(Name = "Current Year")]
         public int UWYear { get; set; }
 
+        // Commented out in HTML
         [DataType(DataType.Date)]
         [Display(Name = "Date of Contribution")]
         public System.DateTime? UWDateCreated { get; set; } = DateTime.Now;
 
+        // Commented out in HTML
         [DataType(DataType.Date)]
         [Display(Name = "Date of Edit")]
         public System.DateTime? UWDateLastEdited { get; set; }
