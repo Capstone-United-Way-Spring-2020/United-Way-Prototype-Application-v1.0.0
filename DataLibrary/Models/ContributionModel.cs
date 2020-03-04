@@ -20,7 +20,7 @@ namespace DataLibrary.Models
         public double UWMonthly { get; set; }
         public int UWMonths { get; set; }
         public int CheckNumber { get; set; }
-        public int ContributionAmount { get; set; }
+        public double ContributionAmount { get; set; }
         public int UWYear { get; set; }
         public DateTime UWDateCreated { get; set; } = DateTime.Now;
         public DateTime UWDateLastEdited { get; set; }
