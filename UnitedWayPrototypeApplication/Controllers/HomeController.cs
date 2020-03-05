@@ -85,7 +85,6 @@ namespace UnitedWayPrototypeApplication.Controllers
             {
                 DataLibrary.BusinessLogic.EmployeeProcessor.CreateEmployee(model.CWID, model.EmployeeFirstName, model.EmployeeLastName, model.EmployeeMI, model.StreetAddress, model.EmployeeCity, model.EmployeeState, model.EmployeeZip,
                     model.Payroll, model.Salary, model.POBox, model.POBoxCity, model.POBoxState, model.OrgCode, model.EmployeeDepartment, model.GivingYear, model.EmployeeStatus, model.EmployeeDateCreated);
-                return RedirectToAction("Employee");
             }
 
             ViewBag.Message = "Create new Employee";
@@ -133,7 +132,6 @@ namespace UnitedWayPrototypeApplication.Controllers
             if (ModelState.IsValid)
             {
                 DataLibrary.BusinessLogic.AgencyProcessor.CreateAgency(model.AgencyID, model.AgencyName, model.AgencyStatus, model.AgencyDateCreated, model.AgencyDateLastEdited);
-                return RedirectToAction("Agency");
             }
 
 
@@ -242,32 +240,10 @@ namespace UnitedWayPrototypeApplication.Controllers
             {
                 DataLibrary.BusinessLogic.DepartmentProcessor.CreateDepartment(model.OrgCode, model.departmentname, model.UWCoordinator3, model.UWCoordinator2, model.UWCoordinator1, model.Division,
                     model.DepartmentStatus, model.DepartmentDateCreated, model.DepartmentLastEdited);
-                return RedirectToAction("Department");
             }
 
             return View();
         }
-        // Creates forms for editing department
-        public ActionResult EditDepartment()
-        {
-            ViewBag.Message = "Edit Department";
 
-            return View();
-        }
-        
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult EditDepartment(DepartmentModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                model.DepartmentLastEdited = DateTime.Now;
-                DataLibrary.BusinessLogic.DepartmentProcessor.EditDepartment(model.OrgCode, model.departmentname, model.UWCoordinator3, model.UWCoordinator2, model.UWCoordinator1, model.Division,
-                    model.DepartmentStatus, model.DepartmentDateCreated, model.DepartmentLastEdited);
-                return RedirectToAction("Department");
-            }
-            return View();
-        }
-        
     }
 }
