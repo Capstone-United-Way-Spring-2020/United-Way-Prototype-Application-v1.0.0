@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -269,48 +268,6 @@ namespace UnitedWayPrototypeApplication.Controllers
             }
             return View();
         }
-
-
-
-        /*
-        // GET /Department/Edit
-        public ActionResult EditDepartment(int orgCode)
-        {
-            var data = DataLibrary.BusinessLogic.DepartmentProcessor.LoadDepartments();
-            DepartmentModel dept = new DepartmentModel();
-
-            foreach (var row in data)
-            {
-                if (row.OrgCode == orgCode)
-                {
-                    dept.OrgCode = row.OrgCode;
-                    dept.departmentname = row.departmentname;
-                    dept.UWCoordinator3 = row.UWCoordinator3;
-                    dept.UWCoordinator2 = row.UWCoordinator2;
-                    dept.UWCoordinator1 = row.UWCoordinator1;
-                    dept.Division = row.Division;
-                    dept.DepartmentStatus = row.DepartmentStatus;
-                    dept.DepartmentDateCreated = row.DepartmentDateCreated;
-                    dept.DepartmentLastEdited = row.DepartmentLastEdited;
-                    break;
-                }
-            }
-
-            return View(dept);
-        }
-        
-        // POST /Department/Edit
-        [HttpPost]
-        public ActionResult EditDepartment(DepartmentModel dept)
-        {
-            if (ModelState.IsValid)
-            {
-                DataLibrary.BusinessLogic.DepartmentProcessor.LoadDepartments().Entry(dept).State = EntityState.Modified;
-                DataLibrary.BusinessLogic.DepartmentProcessor.LoadDepartments().SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(dept);
-        }*/
         
     }
 }

@@ -43,7 +43,7 @@ namespace DataLibrary.BusinessLogic
 
             return SQLDataAccess.LoadData<DepartmentModel>(sql);
         }
-        
+        // code for storing the edited department instances in SQL
         public static int EditDepartment(int orgCode, string departmentName, string uwCoordinator3, string uwCoordinator2, string uwCoordinator1,
             string diVision, bool departmentStatus, DateTime departmentDateCreated, DateTime departmentLastEdited)
         {
@@ -61,10 +61,11 @@ namespace DataLibrary.BusinessLogic
             };
 
 
-            string sql = @"UPDATE Department SET (orgcode = @orgCode, departmentname = @departmentName, uwcoordinator3 = @uwCoordinator3, uwcoordinator2 = @uwCoordinator2, 
-                            uwcoordinator1 = @uwCoordinator1, division = @diVision, departmentdatecreated = @departmentDateCreated, departmentlastedited = @departmentLastEdited, 
-                            departmentstatus = @departmentStatus)
-                            WHERE (orgcode = @orgCode);";
+            string sql = @"UPDATE Department 
+                            SET orgcode = @OrgCode, departmentname = @departmentName, uwcoordinator3 = @UWCoordinator3, uwcoordinator2 = @UWCoordinator2, 
+                            uwcoordinator1 = @UWCoordinator1, division = @Division, departmentdatecreated = @DepartmentDateCreated, departmentlastedited = @DepartmentLastEdited, 
+                            departmentstatus = @DepartmentStatus
+                            WHERE orgcode = @OrgCode;";
 
             return SQLDataAccess.SaveData(sql, data);
         }
