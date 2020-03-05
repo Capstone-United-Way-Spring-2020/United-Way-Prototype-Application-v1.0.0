@@ -43,7 +43,7 @@ namespace DataLibrary.BusinessLogic
 
             return SQLDataAccess.LoadData<DepartmentModel>(sql);
         }
-
+        
         public static int EditDepartment(int orgCode, string departmentName, string uwCoordinator3, string uwCoordinator2, string uwCoordinator1,
             string diVision, bool departmentStatus, DateTime departmentDateCreated, DateTime departmentLastEdited)
         {

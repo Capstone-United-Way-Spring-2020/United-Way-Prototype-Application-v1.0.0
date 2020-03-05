@@ -225,13 +225,14 @@ namespace UnitedWayPrototypeApplication.Controllers
 
             return View();
         }
+        // Creates forms for editing department
         public ActionResult EditDepartment()
         {
             ViewBag.Message = "Edit Department";
 
             return View();
         }
-
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult EditDepartment(DepartmentModel model)
