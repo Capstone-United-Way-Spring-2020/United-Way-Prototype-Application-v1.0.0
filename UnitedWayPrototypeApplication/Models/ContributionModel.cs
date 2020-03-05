@@ -9,6 +9,7 @@ namespace UnitedWayPrototypeApplication.Models
 {
     public class ContributionModel
     {
+        //This means were on the same page
         [Required(ErrorMessage = "Please enter a Contribution ID")]
         [Display(Name = "Contribution ID")]
         [Range(0, int.MaxValue, ErrorMessage = "Contribution ID must be a valid ID.")]
