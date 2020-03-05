@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [UnitedWayAppAccount]
+    WITH PASSWORD = N'kksLnJnrgBb|6cksn{FNmMu=msFT7_&#$!~<wSrbm{~w7mfb', SID = 0x2FC0CFD37EA0D24990BC283BD309D397, DEFAULT_LANGUAGE = [us_english], CHECK_EXPIRATION = ON;
+

@@ -1,12 +1,19 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    padding-top: 100px;
+    padding-bottom: 50px;
+    
+    
+
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    
+  
+    
+    
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -15,7 +22,7 @@
 .dl-horizontal dt {
     white-space: normal;
 }
-
+    
 
 /* Set width on the form input elements since they're 100% wide by default */
 input,
@@ -26,19 +33,51 @@ textarea {
 .navbar-inverse {
     background-color: #9E1B32 !important;
     border-color: white !important;
+
+
+    
+    
+ 
 }
 .navbar-inverse .navbar-nav > li > a {
     color: #FFFFFF !important;
+    font-size:2em;
+    border-right-style:groove;
+
+
+   
+ 
+
 }
 
 .navbar-inverse .navbar-nav > li > a:hover {
         background-color: #808080 !important;
+       
+
+
     }
 
 .navbar-inverse .navbar-brand {
     color: #FFFFFF !important;
+  
+  
+    
+  
 }
 
 .btn-primary {
     background-color: #9E1B32 !important;
+ 
+   
+   }
+.navbar-nav {
+    font-size:18px;
 }
+.navbar-brand{
+    font-size:30px;
+    text-shadow: 2px 2px black ;
+    
+    
+}
+
+

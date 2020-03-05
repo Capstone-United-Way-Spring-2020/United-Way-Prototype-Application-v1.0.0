@@ -1,18 +1,18 @@
 ﻿@model IEnumerable<UnitedWayPrototypeApplication.Models.AgencyModel>
 
 @{
-    ViewBag.Title = "Agency";
+    ViewBag.Title = "Agency Overview";
 }
 
-<h2>Agency</h2>
+<h2>Agency Overview</h2>
 
 <p>
-    @Html.ActionLink("Create New", "CreateAgency")
+    @Html.ActionLink("Create New Agency", "CreateAgency")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.AgencyId)
+            @Html.DisplayNameFor(model => model.AgencyID)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.AgencyName)
@@ -24,7 +24,7 @@
             @Html.DisplayNameFor(model => model.AgencyDateCreated)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.AgencyLastEdited)
+            @Html.DisplayNameFor(model => model.AgencyDateLastEdited)
         </th>
         <th></th>
     </tr>
@@ -32,7 +32,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.AgencyId)
+            @Html.DisplayFor(modelItem => item.AgencyID)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.AgencyName)
@@ -44,7 +44,7 @@
             @Html.DisplayFor(modelItem => item.AgencyDateCreated)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.AgencyLastEdited)
+            @Html.DisplayFor(modelItem => item.AgencyDateLastEdited)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

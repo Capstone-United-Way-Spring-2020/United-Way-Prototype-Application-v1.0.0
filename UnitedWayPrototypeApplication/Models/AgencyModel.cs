@@ -10,7 +10,7 @@ namespace UnitedWayPrototypeApplication.Models
     {
         [Display(Name = "Agency ID")]
         [Required(ErrorMessage = "You must enter an Agency ID")]
-        public string AgencyId { get; set; }
+        public int AgencyID { get; set; }
 
         [Display(Name = "Agency Name")]
         [Required(ErrorMessage = "You must enter an Agency Name")]
@@ -23,6 +23,6 @@ namespace UnitedWayPrototypeApplication.Models
         public DateTime AgencyDateCreated { get; set; } = DateTime.Now;
 
         [Display(Name = "Agency Last Edited")]
-        public DateTime AgencyLastEdited { get; set; }
+        public DateTime AgencyDateLastEdited { get; set; } = DateTime.Now;
     }
 }

@@ -152,6 +152,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Style\StyleSheet.css" />
+    <Content Include="United way.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -166,14 +168,15 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Employee.cshtml" />
     <Content Include="Views\Home\EmployeeCreate.cshtml" />
-    <Content Include="Views\Home\Agency.cshtml" />
-    <Content Include="Views\Home\CreateAgency.cshtml" />
     <Content Include="Views\Home\Contribution.cshtml" />
     <Content Include="Views\Home\CreateContribution.cshtml" />
-    <Content Include="Views\Home\Department.cshtml" />
     <Content Include="Views\Home\CreateDepartment.cshtml" />
+    <Content Include="Views\Home\Employee.cshtml" />
+    <Content Include="Views\Home\Department.cshtml" />
+    <Content Include="Views\Home\CreateAgency.cshtml" />
+    <Content Include="Views\Home\Agency.cshtml" />
+    <Content Include="Views\Home\EditDepartment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -190,6 +193,12 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataLibrary\DataLibrary.csproj">
+      <Project>{bfc9d7b4-520c-4645-ab73-5bf033756382}</Project>
+      <Name>DataLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

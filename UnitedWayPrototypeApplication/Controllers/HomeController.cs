@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using UnitedWayPrototypeApplication.Models;
+using DataLibrary;
+//use comments on code
 
 namespace UnitedWayPrototypeApplication.Controllers
 {
@@ -28,38 +31,64 @@ namespace UnitedWayPrototypeApplication.Controllers
             return View();
         }
 
+        //employee overview, the list of all employees in the system
         public ActionResult Employee()
         {
             ViewBag.Message = "Employee Overview";
 
-            List<Models.EmployeeModel> employees = new List<Models.EmployeeModel>();
+            //using the SQL SELECT statements in EmployeeProcessor to LOAD the employees to a list
+            var data = DataLibrary.BusinessLogic.EmployeeProcessor.LoadEmployees();
+            List<EmployeeModel> employees = new List<EmployeeModel>();
 
-            employees.Add(new Models.EmployeeModel
+            // creating new row for each record
+            foreach (var row in data)
             {
-                CWID = 11708591,
-                EmployeeCity = "Tuscaloosa",
-                EmployeeDateCreated = new DateTime(2020, 2, 14),
-                EmployeeMI = "T",
-                EmployeeState = "AL",
-                EmployeeStreetAddress = "238 Cedar Crest",
-                EmployeeZip = 35401,
-                FirstName = "Christian",
-                LastName = "Golczynski",
-                GivingYear = 2020,
-                Payroll = "m",
-                Salary = 900000,
-                POBox = 85392,
-                POBoxCity = "Tuscaloosa",
-                POBoxState = "AL",
-                EmpOrgCode = 10510,
-                EmployeeDepartment = "President Office"
-            });
+                employees.Add(new EmployeeModel
+                {
+                    CWID = row.CWID,
+                    EmployeeFirstName = row.EmployeeFirstName,
+                    EmployeeLastName = row.EmployeeLastName,
+                    EmployeeMI = row.EmployeeMI,
+                    StreetAddress = row.StreetAddress,
+                    EmployeeCity = row.EmployeeCity,
+                    EmployeeState = row.EmployeeState,
+                    EmployeeZip = row.EmployeeZip,
+                    EmployeeDepartment = row.EmployeeDepartment,
+                    OrgCode = row.OrgCode,
+                    EmployeeStatus = row.EmployeeStatus,
+                    EmployeeDateCreated = row.EmployeeDateCreated,
+                    GivingYear = row.GivingYear,
+                    Payroll = row.Payroll,
+                    Salary = row.Salary,
+                    POBox = row.POBox,
+                    POBoxCity = row.POBoxCity,
+                    POBoxState = row.POBoxState
+                });
+            }
 
-            return View(employees);
+            return View(employees); 
         }
 
+        //form for creating an employee
         public ActionResult EmployeeCreate()
         {
+            ViewBag.Message = "Create new Employee";
+
+            return View();
+        }
+        //catching the information entered in the employee create form
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EmployeeCreate(EmployeeModel model)
+        {
+            //if the model (data) is valid, create the employee in the database using these parameters
+            if (ModelState.IsValid)
+            {
+                DataLibrary.BusinessLogic.EmployeeProcessor.CreateEmployee(model.CWID, model.EmployeeFirstName, model.EmployeeLastName, model.EmployeeMI, model.StreetAddress, model.EmployeeCity, model.EmployeeState, model.EmployeeZip,
+                    model.Payroll, model.Salary, model.POBox, model.POBoxCity, model.POBoxState, model.OrgCode, model.EmployeeDepartment, model.GivingYear, model.EmployeeStatus, model.EmployeeDateCreated);
+                return RedirectToAction("Employee");
+            }
+
             ViewBag.Message = "Create new Employee";
 
             return View();
@@ -68,37 +97,24 @@ namespace UnitedWayPrototypeApplication.Controllers
         public ActionResult Agency()
         {
             ViewBag.Message = "Agency Overview";
+            //utilizing the SQL SELECT statements in AgencyProcessor to LOAD the agencies
+            var data = DataLibrary.BusinessLogic.AgencyProcessor.LoadAgencies();
 
-            List<Models.AgencyModel> agencies = new List<Models.AgencyModel>();
-
-            agencies.Add(new Models.AgencyModel { AgencyId = "001", AgencyName = "2-1-1/Information & Referral" });
-            agencies.Add(new Models.AgencyModel { AgencyId = "002", AgencyName = "Alabama Head Injury Foundation" });
-            agencies.Add(new Models.AgencyModel { AgencyId = "003", AgencyName = "American Red Cross" });
-            agencies.Add(new Models.AgencyModel { AgencyId = "004", AgencyName = "Arts 'n Autism" });
-            agencies.Add(new Models.AgencyModel { AgencyId = "005", AgencyName = "Big Brothers Big Sisters of West Alabama" });
-            agencies.Add(new Models.AgencyModel { AgencyId = "006", AgencyName = "Black Warrior Council Boy Scouts" });
-            agencies.Add(new Models.AgencyModel { AgencyId = "007", AgencyName = "Boys & Girls Clubs of West Alabama" });
-            agencies.Add(new Models.AgencyModel { AgencyId = "008", AgencyName = "Caring Days Adult Day Care" });
-            agencies.Add(new Models.AgencyModel { AgencyId = "009", AgencyName = "Child Abuse Prevention Services" });
-            agencies.Add(new Models.AgencyModel { AgencyId = "010", AgencyName = "Easterseals West Alabama" });
-            agencies.Add(new Models.AgencyModel { AgencyId = "011", AgencyName = "Family Counseling Service" });
-            agencies.Add(new Models.AgencyModel { AgencyId = "012", AgencyName = "Five Horizons Health Services" });
-            agencies.Add(new Models.AgencyModel { AgencyId = "013", AgencyName = "FOCUS on Senior Citizens" });
-            agencies.Add(new Models.AgencyModel { AgencyId = "014", AgencyName = "Girl Scouts of North-Central Alabama" });
-            agencies.Add(new Models.AgencyModel { AgencyId = "015", AgencyName = "Good Samaritan Clinic" });
-            agencies.Add(new Models.AgencyModel { AgencyId = "016", AgencyName = "Hospice of West Alabama" });
-            agencies.Add(new Models.AgencyModel { AgencyId = "017", AgencyName = "Phoenix House" });
-            agencies.Add(new Models.AgencyModel { AgencyId = "018", AgencyName = "Sickle Cell Disease Association" });
-            agencies.Add(new Models.AgencyModel { AgencyId = "019", AgencyName = "Success By 6" });
-            agencies.Add(new Models.AgencyModel { AgencyId = "020", AgencyName = "Temporary Emergency Services" });
-            agencies.Add(new Models.AgencyModel { AgencyId = "021", AgencyName = "The Arc of Tuscaloosa Country" });
-            agencies.Add(new Models.AgencyModel { AgencyId = "022", AgencyName = "The Salvation Army" });
-            agencies.Add(new Models.AgencyModel { AgencyId = "023", AgencyName = "Turning Point" });
-            agencies.Add(new Models.AgencyModel { AgencyId = "024", AgencyName = "Tuscaloosa's One Place" });
-            agencies.Add(new Models.AgencyModel { AgencyId = "025", AgencyName = "United Cerebral Palsy of West Alabama" });
-            agencies.Add(new Models.AgencyModel { AgencyId = "026", AgencyName = "United Way of West Alabama" });
-            agencies.Add(new Models.AgencyModel { AgencyId = "027", AgencyName = "YMCA" });
-
+            //using the SQL SELECT statements in AgencyProcessor to LOAD the agencies to a list
+            List<AgencyModel> agencies = new List<AgencyModel>();
+            //create new row for each record
+            foreach (var row in data)
+            {
+                agencies.Add(new AgencyModel
+                {
+                    AgencyID = row.AgencyID,
+                    AgencyName = row.AgencyName,
+                    AgencyStatus = row.AgencyStatus,
+                    AgencyDateCreated = row.AgencyDateCreated,
+                    AgencyDateLastEdited = row.AgencyDateLastEdited
+                });
+            }
+            
             return View(agencies);
         }
 
@@ -109,27 +125,50 @@ namespace UnitedWayPrototypeApplication.Controllers
             return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateAgency(AgencyModel model)
+        {
+            ViewBag.Message = "Create new Agency";
+            
+            if (ModelState.IsValid)
+            {
+                DataLibrary.BusinessLogic.AgencyProcessor.CreateAgency(model.AgencyID, model.AgencyName, model.AgencyStatus, model.AgencyDateCreated, model.AgencyDateLastEdited);
+                return RedirectToAction("Agency");
+            }
+
+
+            return View();
+        }
+
         public ActionResult Contribution()
         {
             ViewBag.Message = "Contribution Overview";
+            //utilizing the SQL SELECT statements in ContributionProcessor to LOAD the contributions
+            var data = DataLibrary.BusinessLogic.ContributionProcessor.LoadContributions();
 
-            List<Models.ContributionModel> contributions = new List<Models.ContributionModel>();
-
-            contributions.Add(new Models.ContributionModel
+            //using the SQL SELECT statements in ContributionProcessor to LOAD the contributions to a list
+            List<ContributionModel> contributions = new List<ContributionModel>();
+            //create new row for each record
+            foreach (var row in data)
             {
-                CWID = 11708591,
-                AgencyID = 001,
-                ContributionAmount = 120,
-                ContributionID = 001,
-                UWDateCreated = new DateTime(2020, 2, 14),
-                UWType = "m",
-                UWMonthly = 10,
-                UWMonths = 12,
-                UWYear = 2020,
-                UWDateLastEdited = new DateTime(2020,2,16),
-                CFirstName = "Christian",
-                CLastName = "Golczynski"
-            });
+                contributions.Add(new ContributionModel
+                {
+                    ContributionID = row.ContributionID,
+                    UWType = row.UWType,
+                    UWMonthly = row.UWMonthly,
+                    UWMonths = row.UWMonths,
+                    ContributionAmount = row.ContributionAmount,
+                    UWYear = row.UWYear,
+                    CWID = row.CWID,
+                    AgencyID = row.AgencyID,
+                    CFirstName = row.CFirstName,
+                    CLastName = row.CLastName,
+                    CheckNumber = row.CheckNumber,
+                    UWDateCreated = row.UWDateCreated,
+                    UWDateLastEdited = row.UWDateLastEdited
+                });
+            }
 
             return View(contributions);
         }
@@ -141,31 +180,137 @@ namespace UnitedWayPrototypeApplication.Controllers
             return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateContribution(ContributionModel model)
+        {
+            ViewBag.Message = "Create new Contribution";
+
+            if (ModelState.IsValid)
+            {
+                DataLibrary.BusinessLogic.ContributionProcessor.CreateContribution(model.ContributionID, model.UWType, model.UWMonthly, model.UWMonths, model.ContributionAmount, model.UWYear, 
+                    model.CWID, model.AgencyID, model.CFirstName, model.CLastName, model.CheckNumber, model.UWDateCreated, model.UWDateLastEdited);
+            }
+
+            return View();
+        }
+
+        //department overview, shows all departments in a list
         public ActionResult Department()
         {
             ViewBag.Message = "Department Overview";
 
-            List<Models.DepartmentModel> departments = new List<Models.DepartmentModel>();
+            //able to use that SQL SELECT statement from DepartmentProcessor, use for each to loop through all data
+            var data = DataLibrary.BusinessLogic.DepartmentProcessor.LoadDepartments();
+            List<DepartmentModel> departments = new List<DepartmentModel>();
 
-            departments.Add(new Models.DepartmentModel
+
+            foreach (var row in data)
             {
-                OrgCode = 10510,
-                DepartmentDateCreated = new DateTime(2020, 2 / 14),
-                Division = "President Office",
-                UWCoordinator3 = "Beverly Baker",
-                UWCoordinator2 = "Beverly Baker",
-                UWCoordinator1 = "Beverly Baker",
-                DepartmentLastEdited = new DateTime(2020, 2, 16)
-            });
+                departments.Add(new DepartmentModel
+                {
+                    OrgCode = row.OrgCode,
+                    departmentname = row.departmentname,
+                    UWCoordinator3 = row.UWCoordinator3,
+                    UWCoordinator2 = row.UWCoordinator2,
+                    UWCoordinator1 = row.UWCoordinator1,
+                    Division = row.Division,
+                    DepartmentStatus = row.DepartmentStatus,
+                    DepartmentDateCreated = row.DepartmentDateCreated,
+                    DepartmentLastEdited = row.DepartmentLastEdited
+                });
+            }
+
 
             return View(departments);
         }
 
+        //form for creating a new department
         public ActionResult CreateDepartment()
         {
             ViewBag.Message = "Create new Department";
 
             return View();
         }
+
+        //catching the information from the create department form
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateDepartment(DepartmentModel model)
+        {
+            //checking if the data sent from the form is valid 
+            if (ModelState.IsValid)
+            {
+                DataLibrary.BusinessLogic.DepartmentProcessor.CreateDepartment(model.OrgCode, model.departmentname, model.UWCoordinator3, model.UWCoordinator2, model.UWCoordinator1, model.Division,
+                    model.DepartmentStatus, model.DepartmentDateCreated, model.DepartmentLastEdited);
+                return RedirectToAction("Department");
+            }
+
+            return View();
+        }
+        // Creates forms for editing department
+        public ActionResult EditDepartment()
+        {
+            ViewBag.Message = "Edit Department";
+
+            return View();
+        }
+        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditDepartment(DepartmentModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                model.DepartmentLastEdited = DateTime.Now;
+                DataLibrary.BusinessLogic.DepartmentProcessor.EditDepartment(model.OrgCode, model.departmentname, model.UWCoordinator3, model.UWCoordinator2, model.UWCoordinator1, model.Division,
+                    model.DepartmentStatus, model.DepartmentDateCreated, model.DepartmentLastEdited);
+                return RedirectToAction("Department");
+            }
+            return View();
+        }
+
+
+
+        /*
+        // GET /Department/Edit
+        public ActionResult EditDepartment(int orgCode)
+        {
+            var data = DataLibrary.BusinessLogic.DepartmentProcessor.LoadDepartments();
+            DepartmentModel dept = new DepartmentModel();
+
+            foreach (var row in data)
+            {
+                if (row.OrgCode == orgCode)
+                {
+                    dept.OrgCode = row.OrgCode;
+                    dept.departmentname = row.departmentname;
+                    dept.UWCoordinator3 = row.UWCoordinator3;
+                    dept.UWCoordinator2 = row.UWCoordinator2;
+                    dept.UWCoordinator1 = row.UWCoordinator1;
+                    dept.Division = row.Division;
+                    dept.DepartmentStatus = row.DepartmentStatus;
+                    dept.DepartmentDateCreated = row.DepartmentDateCreated;
+                    dept.DepartmentLastEdited = row.DepartmentLastEdited;
+                    break;
+                }
+            }
+
+            return View(dept);
+        }
+        
+        // POST /Department/Edit
+        [HttpPost]
+        public ActionResult EditDepartment(DepartmentModel dept)
+        {
+            if (ModelState.IsValid)
+            {
+                DataLibrary.BusinessLogic.DepartmentProcessor.LoadDepartments().Entry(dept).State = EntityState.Modified;
+                DataLibrary.BusinessLogic.DepartmentProcessor.LoadDepartments().SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(dept);
+        }*/
+        
     }
 }

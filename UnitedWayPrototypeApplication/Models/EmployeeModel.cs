@@ -9,24 +9,24 @@ namespace UnitedWayPrototypeApplication.Models
     public class EmployeeModel
     {
         [Display(Name = "CWID")]
-        [Range(10000000, 99999999)]
+        [Range(10000000, 99999999, ErrorMessage = "You need to enter a valid CWID")]
         [Required(ErrorMessage = "You must enter a CWID")]
         public int CWID { get; set; }
 
         [Display(Name = "First Name")]
         [Required(ErrorMessage ="You must enter a first name")]
-        public string FirstName { get; set; }
+        public string EmployeeFirstName { get; set; }
 
         [Display(Name = "Last Name")]
         [Required(ErrorMessage = "You must enter a last name")]
-        public string LastName { get; set; }
+        public string EmployeeLastName { get; set; }
 
         [Display(Name = "Middle Initial")]
         public string EmployeeMI { get; set; }
 
         [Display(Name = "Street Address")]
         [Required(ErrorMessage = "You must enter a street address")]
-        public string EmployeeStreetAddress { get; set; }
+        public string StreetAddress { get; set; }
 
         [Display(Name = "City")]
         [Required(ErrorMessage = "You must enter a ctiy")]
@@ -37,6 +37,7 @@ namespace UnitedWayPrototypeApplication.Models
         public string EmployeeState { get; set; }
         
         [Display(Name = "Zip Code")]
+        [DataType(DataType.PostalCode)]
         [Required(ErrorMessage = "You must enter a zip code")]
         public int EmployeeZip { get; set; }
 
@@ -58,21 +59,20 @@ namespace UnitedWayPrototypeApplication.Models
         public string POBoxState { get; set; }
 
         [Display(Name = "Org Code")]
-        public int EmpOrgCode { get; set; }
+        public int OrgCode { get; set; }
 
         [Display(Name = "Department")]
         public string EmployeeDepartment { get; set; }
 
         [Display(Name = "Giving Year")]
         [Required(ErrorMessage = "You must enter the giving year")]
-        public int GivingYear { get; set; }
+        public int GivingYear { get; set; } 
 
         [Display(Name = "Employee Status")]
         public bool EmployeeStatus { get; set; } = true;
 
         [Display(Name = "Date Created")]
         public DateTime EmployeeDateCreated { get; set; } = DateTime.Now;
-
 
     }
 }
