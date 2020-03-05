@@ -38,8 +38,26 @@ namespace DataLibrary.BusinessLogic
             return SQLDataAccess.LoadData<AgencyModel>(sql);
         }
 
+        public static int EditAgency(int agencyID, string agencyName, bool agencyStatus, DateTime agencyDateCreated, DateTime agencyDateLastEdited)
+        {
+            AgencyModel data = new AgencyModel
+            {
+                AgencyID = agencyID,
+                AgencyName = agencyName,
+                AgencyStatus = agencyStatus,
+                AgencyDateCreated = agencyDateCreated,
+                AgencyDateLastEdited = agencyDateLastEdited
+            };
 
 
-        
+            string sql = @"UPDATE Agency
+                            SET agencyid = @AgencyID, agencyname = @AgencyName, agencystatus = @AgencyStatus, agencydatecreated = @AgencyDateCreated, 
+                            agencydatelastedited = @AgencyDateLastEdited
+                            WHERE agencyid = @AgencyID;";
+
+            return SQLDataAccess.SaveData(sql, data);
+        }
+
+
     }
 }

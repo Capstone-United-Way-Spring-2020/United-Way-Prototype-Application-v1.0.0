@@ -19,6 +19,6 @@ namespace DataLibrary.Models
 
         public DateTime AgencyDateCreated { get; set; } = DateTime.Now;
 
-        public DateTime AgencyDateLastEdited { get; set; }
+        public DateTime AgencyDateLastEdited { get; set; } = DateTime.Now;
     }
 }
