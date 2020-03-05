@@ -143,24 +143,31 @@ namespace UnitedWayPrototypeApplication.Controllers
         public ActionResult Contribution()
         {
             ViewBag.Message = "Contribution Overview";
+            //utilizing the SQL SELECT statements in ContributionProcessor to LOAD the contributions
+            var data = DataLibrary.BusinessLogic.ContributionProcessor.LoadContributions();
 
-            List<Models.ContributionModel> contributions = new List<Models.ContributionModel>();
-
-            contributions.Add(new Models.ContributionModel
+            //using the SQL SELECT statements in ContributionProcessor to LOAD the contributions to a list
+            List<ContributionModel> contributions = new List<ContributionModel>();
+            //create new row for each record
+            foreach (var row in data)
             {
-                CWID = 11708591,
-                AgencyID = 001,
-                ContributionAmount = 120,
-                ContributionID = 001,
-                UWDateCreated = new DateTime(2020, 2, 14),
-                UWType = "m",
-                UWMonthly = 10,
-                UWMonths = 12,
-                UWYear = 2020,
-                UWDateLastEdited = new DateTime(2020,2,16),
-                CFirstName = "Christian",
-                CLastName = "Golczynski"
-            });
+                contributions.Add(new ContributionModel
+                {
+                    ContributionID = row.ContributionID,
+                    UWType = row.UWType,
+                    UWMonthly = row.UWMonthly,
+                    UWMonths = row.UWMonths,
+                    ContributionAmount = row.ContributionAmount,
+                    UWYear = row.UWYear,
+                    CWID = row.CWID,
+                    AgencyID = row.AgencyID,
+                    CFirstName = row.CFirstName,
+                    CLastName = row.CLastName,
+                    CheckNumber = row.CheckNumber,
+                    UWDateCreated = row.UWDateCreated,
+                    UWDateLastEdited = row.UWDateLastEdited
+                });
+            }
 
             return View(contributions);
         }
@@ -168,6 +175,21 @@ namespace UnitedWayPrototypeApplication.Controllers
         public ActionResult CreateContribution()
         {
             ViewBag.Message = "Enter new Contribution";
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateContribution(ContributionModel model)
+        {
+            ViewBag.Message = "Create new Contribution";
+
+            if (ModelState.IsValid)
+            {
+                DataLibrary.BusinessLogic.ContributionProcessor.CreateContribution(model.ContributionID, model.UWType, model.UWMonthly, model.UWMonths, model.ContributionAmount, model.UWYear, 
+                    model.CWID, model.AgencyID, model.CFirstName, model.CLastName, model.CheckNumber, model.UWDateCreated, model.UWDateLastEdited);
+            }
 
             return View();
         }
